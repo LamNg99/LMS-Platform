@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Order Confirmation</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 600px;
+        height: 100vh;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #4f5ef1;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        color: #ffffff;
+      }
+      .message {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 20px;
+        padding-top: 50px;
+      }
+      .message-sm {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 20px;
+        padding-top: 50px;
+      }
+      .message-sm > h1 {
+        text-align: center;
+        font-size: 25px;
+        font-weight: 600;
+      }
+      .course-info {
+        margin: auto;
+        padding: 20px 0px;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 2px 2px 2px 2px rgba(206, 197, 197, 0.1);
+        color: #000;
+      }
+      .course-info > h4 {
+        color: #23bd70;
+        font-size: 22px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 500;
+        text-align: center;
+        padding: 0 !important;
+        margin-top: 0 !important;
+      }
+      .course_name {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      .purchase-info {
+        font-size: 16px;
+      }
+      .total {
+        font-size: 18px;
+        text-align: right;
+        margin-top: 20px;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 100px;
+        color: #fff;
+      }
+      .footer > p > a {
+        text-decoration: none;
+        display: inline-block;
+        color: #fff;
+      }
+      .flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #9999993f;
+      }
+      .flex h4 {
+        font-weight: 400;
+        margin-bottom: 5px;
+      }
+      .flex.lg {
+        width: 85%;
+        margin: auto;
+        border-bottom: none;
+      }
+      .first-td {
+        font-weight: 600 !important;
+      }
+      .second-td {
+        font-weight: 500 !important;
+        color: #000000af;
+        font-size: 15px;
+      }
+      .title {
+        font-size: 16px !important;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      td {
+        padding: 10px;
+        text-align: center;
+        width: 28.33%;
+      }
+      td.col-2 {
+        width: 100%;
+        text-align: left;
+        padding: 0px;
+        margin: 0;
+      }
+      .m-auto {
+        width: 100%;
+        margin: auto;
+      }
+      .table-row {
+        width: 70%;
+        display: block;
+        margin: auto;
+        padding: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="message-sm">
+        <h1>SkillBoost Order Confirmation</h1>
+        <p>
+          We did our best to give you a pleasant experience of our learning
+          platform
+        </p>
+      </div>
+      <br />
+      <br />
+      <div class="course-info">
+        <h4>Review your order information below:</h4>
+        <table style="border-bottom: 1px solid #0000002f">
+          <tr>
+            <td>Order #: <%= order._id %></td>
+            <td>Date: <%= order.date %></td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <td class="first-td">Course</td>
+            <td class="first-td">Price</td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <td class="second-td"><%= order.name %></td>
+            <td class="second-td">
+              $<%= parseFloat(order.price).toFixed(2) %>
+            </td>
+          </tr>
+        </table>
+        <table class="table-row" style="border-top: 1px solid #00000029">
+          <tr>
+            <td class="col-2">Subtotal:</td>
+            <td class="col-2">$<%= parseFloat(order.price).toFixed(2) %></td>
+          </tr>
+        </table>
+        <table class="table-row" style="margin-top: -20px">
+          <tr>
+            <td class="col-2">Tax:</td>
+            <td class="col-2">
+              $<%= parseFloat(order.price * 0.1).toFixed(2) %>
+            </td>
+          </tr>
+        </table>
+        <table class="table-row" style="margin-top: -20px">
+          <tr>
+            <td class="col-2">Total:</td>
+            <td class="col-2">
+              $<%= parseFloat(order.price * 1.1).toFixed(2) %>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="footer">
+        <p>
+          If you have any questions, please don't hestitate to contact us at
+          <a href="mailto:support@skillboost.com">support@skillboost.com</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
